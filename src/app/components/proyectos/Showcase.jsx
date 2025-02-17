@@ -125,7 +125,7 @@ const Showcase = () => {
       <div className="flex justify-center items-center mt-4 mb-8 space-x-2 py-3 text-xl md:text-2xl">
         <button 
           onClick={() => changePage(1)}
-          className={`px-3 py-1 font-bold ${currentPage === 1 ? 'bg-gray-200' : 'bg-white'} border rounded`}
+          className={`px-3 py-1 font-bold ${currentPage === 1 ? '' : ''} `}
         >
           1
         </button>
@@ -133,7 +133,7 @@ const Showcase = () => {
           <button
             key={pageNum}
             onClick={() => changePage(pageNum)}
-            className={`px-3 py-1 font-bold ${currentPage === pageNum ? 'bg-gray-200' : 'bg-white'} border rounded`}
+            className={`px-3 py-1 font-bold ${currentPage === pageNum ? '' : ''} `}
           >
             {pageNum}
           </button>

@@ -294,22 +294,10 @@ const Project_details = ({ projectId }) => {
       <div className="flex justify-center mt-12 py-12">
         <Link 
           href="/proyectos" 
-          className="text-2xl md:text-4xl font-bold hover:text-custom-orange transition-colors duration-300"
-          onMouseEnter={(e) => {
-            const annotation = annotate(e.currentTarget, { 
-              type: 'circle',
-              color: '#ea8415',
-              padding: 16,
-              strokeWidth: 3,
-              animationDuration: 250
-            });
-            annotation.show();
-            e.currentTarget.addEventListener('mouseleave', () => {
-              annotation.hide();
-            }, { once: true });
-          }}
+          className="relative text-2xl md:text-4xl font-bold transition-colors duration-300 group"
         >
           Ir a proyectos
+          <span className="absolute left-0 -bottom-1 w-full h-[3px] transition-all duration-300 transform translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-custom-orange"></span>
         </Link>
       </div>
     </div>

@@ -10,38 +10,16 @@ import { usePathname } from 'next/navigation'
 const NavLink = ({ href, isMobile = false, children, onClick }) => {
   const linkId = `${href}${isMobile ? '-mobile' : ''}`
 
-  useEffect(() => {
-    const element = document.querySelector(`[data-link="${linkId}"]`)
-    if (!element) return
-
-    const annotation = annotate(element, { 
-      type: 'box',
-      color: '#ea8415',
-      strokeWidth: 2,
-      animationDuration: 250
-    })
-
-    const handleMouseEnter = () => annotation.show()
-    const handleMouseLeave = () => annotation.hide()
-
-    element.addEventListener('mouseenter', handleMouseEnter)
-    element.addEventListener('mouseleave', handleMouseLeave)
-    
-    return () => {
-      element.removeEventListener('mouseenter', handleMouseEnter)
-      element.removeEventListener('mouseleave', handleMouseLeave)
-      annotation.remove()
-    }
-  }, [linkId])
-
   return (
     <Link 
       href={href}
-      className="relative transition-colors duration-300 hover:text-custom-orange"
-      data-link={linkId}
+      className="relative transition-colors duration-300 group"
       onClick={onClick}
     >
       {children}
+      <span className={`absolute left-0 -bottom-1 w-full h-[3px] transition-all duration-300 transform translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 ${
+        isMobile ? 'bg-custom-orange' : 'bg-custom-orange'
+      }`}></span>
     </Link>
   )
 }
