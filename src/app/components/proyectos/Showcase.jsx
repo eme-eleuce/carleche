@@ -22,8 +22,13 @@ const Showcase = () => {
 
         if (projectsError) throw projectsError
 
+        if (!projectsData || projectsData.length === 0) {
+          setError('No se encontraron proyectos en la base de datos');
+          return;
+        }
+
         const projectsWithImages = projectsData.map(project => {
-          const filePath = `project${project.id}/image1.png`
+          const filePath = `${project.name}/image1.png`
           const imageUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${filePath}`
           const optimizedImageUrl = getOptimizedImageUrl(imageUrl)
           const srcSet = generateSupabaseImageSrcSet(imageUrl)
@@ -78,8 +83,8 @@ const Showcase = () => {
   if (currentProjects.length === 0) return <div className="flex justify-center items-center min-h-screen"><p className="text-xl">No hay proyectos disponibles</p></div>
 
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-bold text-center mb-12">Proyectos</h1>
+    <div className="container mx-auto px-4 uppercase">
+      <h1 className="text-5xl font-bold text-center mb-20 mt-14 md:mt-14">Proyectos</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:px-24 lg:px-32">
         {currentProjects.map((project, index) => (
           <div 
@@ -105,10 +110,10 @@ const Showcase = () => {
                     e.currentTarget.src = '/photos/placeholder.jpg'
                   }}
                 />
-                <div className="absolute inset-0 bg-black/15">
-                  <div className="flex flex-col justify-center items-center h-full text-white">
-                    <h2 className="text-2xl font-bold mb-2 text-center px-4">{project.name}</h2>
-                    <h2 className="text-xl font-bold mb-2 text-center px-4">{project.client}</h2>
+                <div className="absolute inset-0 bg-black/25">
+                  <div className="flex flex-col justify-center items-center h-full ">
+                    <h2 className="text-3xl text-white font-extrabold mb-2 text-center px-4">{project.name}</h2>
+                    <h2 className="text-2xl text-gray-300 mb-2 text-center px-4">{project.client}</h2>
                   </div>
                 </div>
               </div>
@@ -117,14 +122,14 @@ const Showcase = () => {
         ))}
       </div>
       
-      <div className="flex justify-center items-center mt-8 space-x-2">
+      <div className="flex justify-center items-center mt-4 mb-8 space-x-2 py-3 text-xl md:text-2xl">
         <button 
           onClick={() => changePage(1)}
           className={`px-3 py-1 font-bold ${currentPage === 1 ? 'bg-gray-200' : 'bg-white'} border rounded`}
         >
           1
         </button>
-        {[2, 3].map((pageNum) => (
+        {[2, 3, 4, 5].map((pageNum) => (
           <button
             key={pageNum}
             onClick={() => changePage(pageNum)}

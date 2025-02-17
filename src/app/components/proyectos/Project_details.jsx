@@ -30,15 +30,22 @@ const Project_details = ({ projectId }) => {
 
         if (projectError) throw projectError
 
-        const { data: imageList, error: imageError } = await supabase
+        const { data: storageData, error: storageError } = await supabase
           .storage
           .from(BUCKET_NAME)
-          .list(`project${projectId}`)
+          .list(`${projectData.name}`)
 
-        if (imageError) throw imageError
+        if (storageError) {
+          throw storageError;
+        }
+        
+        if (!storageData || storageData.length === 0) {
+          setError('No se encontraron imágenes para este proyecto');
+          return;
+        }
 
-        const imageUrls = imageList.map(image => {
-          const baseUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/project${projectId}/${image.name}`
+        const imageUrls = storageData.map(image => {
+          const baseUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${projectData.name}/${image.name}`
           return {
             url: getOptimizedImageUrl(baseUrl, imageSizes.large),
             thumbnail: getOptimizedImageUrl(baseUrl, imageSizes.thumbnail),
@@ -181,8 +188,8 @@ const Project_details = ({ projectId }) => {
   if (!project) return <div className="flex justify-center items-center min-h-screen"><p className="text-xl">Proyecto no encontrado</p></div>
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-center text-4xl md:text-6xl font-bold mb-4">{project.name}</h1>
+    <div className="container mx-auto px-4 py-8 uppercase">
+      <h1 className="text-center text-4xl md:text-6xl font-bold mb-4 mt-8 text-custom-brown">{project.name}</h1>
       <h2 className="text-center text-2xl text-gray-600 mb-12">{project.client}</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-3 md:px-24 lg:px-30">

@@ -1,14 +1,14 @@
 'use client'
-import { Indie_Flower } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import { usePathname } from 'next/navigation'
 
-const indie_flower = Indie_Flower({
+const font = Outfit({
   subsets: ['latin'], // Subconjuntos de caracteres (opcional)
   weight: ['400'], // Pesos de la fuente
-  variable: '--font-indie-flower', // Variable CSS para usar la fuente
+  variable: '--font-outfit', // Variable CSS para usar la fuente
 });
 
 export default function RootLayout({ children }) {
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         <title>Carleche</title>
         <meta name="description" content="Building" />
       </head>
-      <body className={indie_flower.className}>
+      <body className={font.className}>
         <Navbar />
         <main>
           {children}

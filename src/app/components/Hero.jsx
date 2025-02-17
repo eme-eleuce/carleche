@@ -29,12 +29,9 @@ const Hero = () => {
         if (currentImageIndex < images.length - 1) {
           setCurrentImageIndex(prev => prev + 1)
         } else {
-          setIsBlurring(true)
-          setTimeout(() => {
-            setShowVideo(true)
-          }, 300)
+          setShowVideo(true)
         }
-      }, 600)
+      }, 400)
 
       return () => clearInterval(interval)
     }
@@ -51,18 +48,18 @@ const Hero = () => {
   }, [showVideo])
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black">
+    <div className="relative w-full h-screen overflow-hidden bg-gray-500/30">
       {/* Imágenes */}
-      {!showVideo && images.map((image, index) => (
+      {images.map((image, index) => (
         <div
           key={image}
           className={`absolute inset-0 transition-all duration-500 ${
-            index === currentImageIndex 
+            !showVideo && index === currentImageIndex 
               ? 'translate-y-0 opacity-100' 
               : index < currentImageIndex 
                 ? '-translate-y-full opacity-0'
                 : 'translate-y-full opacity-0'
-          } ${isBlurring ? 'opacity-50' : ''}`}
+          } ${showVideo ? 'opacity-0' : ''}`}
         >
           <Image
             src={image}
@@ -76,13 +73,13 @@ const Hero = () => {
       ))}
 
       {/* Videos */}
-      <div className={`absolute inset-0 transition-opacity duration-300 ${
-        showVideo ? 'opacity-100' : 'opacity-0'
+      <div className={`absolute inset-0 transition-all duration-700 ${
+        showVideo ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
       }`}>
         {videos.map((video, index) => (
           <div
             key={video}
-            className={`absolute inset-0 transition-opacity duration-300 ${
+            className={`absolute inset-0 transition-opacity duration-1000 ${
               index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
             }`}
           >
@@ -100,7 +97,7 @@ const Hero = () => {
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-black/10" />
     </div>
   )
 }
