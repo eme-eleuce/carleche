@@ -70,9 +70,9 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-6 flex items-center text-3xl space-x-12 font-extrabold text-custom-orange">
               <NavLink href="/proyectos">Proyectos</NavLink>
-              <NavLink href="/servicios">Servicios</NavLink>
+              <NavLink href="/about">Nosotros</NavLink>
               <NavLink href="/reel">Reel</NavLink>
-              <NavLink href="/contacto">Contacto</NavLink>
+              <NavLink href="/contact">Contacto</NavLink>
             </div>
           </div>
 
@@ -84,9 +84,9 @@ const Navbar = () => {
           >
             <div className="flex flex-col items-center justify-center h-full space-y-12 text-4xl pt-4 text-white">
               <NavLink href="/proyectos" isMobile onClick={closeMenu}>Proyectos</NavLink>
-              <NavLink href="/servicios" isMobile onClick={closeMenu}>Servicios</NavLink>
+              <NavLink href="/about" isMobile onClick={closeMenu}>Nosotros</NavLink>
               <NavLink href="/reel" isMobile onClick={closeMenu}>Reel</NavLink>
-              <NavLink href="/contacto" isMobile onClick={closeMenu}>Contacto</NavLink>
+              <NavLink href="/contact" isMobile onClick={closeMenu}>Contacto</NavLink>
             </div>
           </div>
 

@@ -84,7 +84,7 @@ const Showcase = () => {
 
   return (
     <div className="container mx-auto px-4 uppercase">
-      <h1 className="text-5xl font-bold text-center mb-20 mt-14 md:mt-14">Proyectos</h1>
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 mt-14 md:mt-14 text-custom-brown">Proyectos</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:px-24 lg:px-32">
         {currentProjects.map((project, index) => (
           <div 

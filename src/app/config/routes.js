@@ -1,3 +1,5 @@
+import About from '../components/About'
+import Contact from '../components/Contact'
 import Showcase from '../components/proyectos/Showcase'
 import Reel from '../components/Reel'
 // Importa otros componentes aquí
@@ -9,7 +11,7 @@ export const routes = [
     title: 'Proyectos',
     metadata: {
       title: 'Proyectos | Carleche',
-      description: 'Proyectos de Carleche Productions'
+      description: 'Proyectos de Carleche Editor - Color Grading'
     }
   },
   {
@@ -18,8 +20,25 @@ export const routes = [
     title: 'Reel',
     metadata: {
       title: 'Reel | Carleche',
-      description: 'Video reel de Carleche Productions'
+      description: 'Video reel de Carleche Editor - Color Grading'
     }
   },
-  // Puedes agregar más rutas aquí
+  {
+    path: '/about',
+    component: About,
+    title: 'Nosotros',
+    metadata: {
+      title: 'Nosotros | Carleche',
+      description: 'Conoce a Carleche Editor - Color Grading'
+    }
+  },
+  {
+    path: '/contact',
+    component: Contact,
+    title: 'Contacto',
+    metadata: {
+      title: 'Contacto | Carleche',
+      description: 'Contacto via Whatsapp o Instagram'
+    }
+  },
 ] 
