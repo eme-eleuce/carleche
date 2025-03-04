@@ -10,8 +10,14 @@ const outfit = Outfit({
 export const metadata = {
   title: 'Carleche | Editor & Color Grading',
   description: 'Especialistas en postproducción audiovisual y color grading. Transformamos historias a través del color, creando experiencias visuales únicas y de alto impacto.',
-  keywords: 'color grading, postproducción, edición de video, corrección de color, Carleche, editor profesional',
+  keywords: 'color grading, postproducción, edición de video, corrección de color, Carleche, editor profesional, postproducción audiovisual, colorista, editor de video profesional, servicios de edición',
   metadataBase: new URL('https://carleche.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'es-ES': '/',
+    },
+  },
   openGraph: {
     title: 'Carleche - Editor & Color Grading',
     description: 'Especialistas en postproducción audiovisual y color grading. Transformamos historias a través del color.',
@@ -22,6 +28,9 @@ export const metadata = {
     images: [
       {
         url: '/icon1.png',
+        width: 1200,
+        height: 630,
+        alt: 'Carleche - Editor & Color Grading',
       },
     ],
   },
@@ -29,11 +38,25 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Carleche - Editor & Color Grading',
     description: 'Especialistas en postproducción audiovisual y color grading',
-    images: ['/icon1.png'],
+    creator: '@carleche',
+    images: [{
+      url: '/icon1.png',
+      alt: 'Carleche - Editor & Color Grading',
+    }],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'add-your-google-site-verification-here',
   },
 };
 
