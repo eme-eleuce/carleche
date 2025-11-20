@@ -14,9 +14,27 @@ const Footer = () => {
           >
             @iam_carleche
           </Link>
-          <p className="text-sm">
-            &copy; {new Date().getFullYear()} Carleche / Editor - Color Grading
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm">
+            <p>
+              &copy; {new Date().getFullYear()} Carleche / Editor - Color Grading
+            </p>
+            
+            {/* Separator */}
+            <span className="hidden sm:inline text-gray-400 text-lg">|</span>
+            
+            {/* Desarrollado por */}
+            <div>
+              <span>desarrollado por </span>
+              <a
+                href="https://www.eme-eleuce.com/work/websites"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-custom-orange font-bold underline"
+              >
+                luis eme
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
