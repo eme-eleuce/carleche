@@ -1,15 +1,13 @@
 export default function About() {
   return (
     <div className="min-h-screen bg-[#f8f8f8] pt-20 px-4 md:px-8 mb-1 md:mb-12">
-      <h1 className="mb-14 mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-center text-custom-brown uppercase animate-fadeIn" style={{animationDelay: '0ms'}}>
-        Nosotros
-      </h1>
-      <div className="max-w-[800px] mx-auto mb-20 space-y-10 text-xl md:text-2xl text-center">
+      
+      <div className="max-w-[1100px] mx-auto mb-20 space-y-10 text-xl md:text-2xl text-center">
         <div className="flex justify-center mb-10 animate-fadeIn" style={{animationDelay: '200ms'}}>
           <img 
-            src="/icon1.png" 
-            alt="Lugoz Edition Icon" 
-            className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain"
+            src="/photos/Escritorio.jpg" 
+            alt="Escritorio" 
+            className="w-full object-cover rounded-lg shadow-lg"
           />
         </div>
         <p className="text-3xl md:text-4xl font-medium animate-fadeIn" style={{animationDelay: '400ms'}}>

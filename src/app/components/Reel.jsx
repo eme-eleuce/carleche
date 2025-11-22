@@ -23,9 +23,7 @@ const Reel = () => {
 
   return (
     <div className="min-h-screen bg-[#f8f8f8] pt-32 px-4 md:px-8 mb-1 md:mb-12">
-      <h1 className="mb-20 mt-14 text-4xl md:text-5xl lg:text-6xl font-bold text-center text-custom-brown uppercase">
-        Reel
-      </h1>
+      
       <div className="max-w-[1200px] mx-auto aspect-video relative">
         {!showVideo ? (
           <div 

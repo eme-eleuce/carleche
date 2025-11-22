@@ -57,18 +57,18 @@ const Navbar = () => {
           <div className="flex-shrink-0 w-fit h-fit">
             <Link href="/" className="block w-fit h-fit" onClick={closeMenu}>
               <Image 
-                src={pathname === '/' ? '/photos/logo-b.png' : '/photos/logo1.png'}
+                src={pathname === '/' ? '/photos/Icono_blamnco.png' : '/photos/icono_color.png'}
                 alt="Logo"
                 width={260}
                 height={260}
-                className="w-[210px] h-[45px] md:w-[310px] md:h-[60px] lg:w-[320px] lg:h-[65px] scale-105 transition-all duration-300 hover:scale-100"
+                className="w-[80px] h-[70px] md:w-[90px] md:h-[80px] lg:w-[110px] lg:h-[90px] scale-105 transition-all duration-300 hover:scale-100"
               />
             </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="ml-6 flex items-center text-3xl space-x-12 font-extrabold text-custom-orange">
+            <div className="ml-6 flex items-center text-2xl md:text-3xl space-x-12 font-extrabold text-custom-orange">
               <NavLink href="/proyectos">Proyectos</NavLink>
               <NavLink href="/about">Nosotros</NavLink>
               <NavLink href="/reel">Reel</NavLink>

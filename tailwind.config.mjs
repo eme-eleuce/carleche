@@ -13,6 +13,15 @@ export default {
         'custom-orange': '#ea8415',
         'custom-brown': '#831d15',
       },
+      keyframes: {
+        heartbeat: {
+          '0%, 28%, 56%, 100%': { transform: 'scale(1)' },
+          '14%, 42%': { transform: 'scale(1.15)' },
+        },
+      },
+      animation: {
+        heartbeat: 'heartbeat 1.5s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
